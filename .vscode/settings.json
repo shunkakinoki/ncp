@@ -2,5 +2,8 @@
     "files.exclude": {
         "**/.vscode/ipch": true,
         "**/a.out": true
+    },
+    "files.associations": {
+        "iosfwd": "cpp"
     }
 }

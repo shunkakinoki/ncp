@@ -1,22 +1,53 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int countSubstrs(string s1, string s2)
 {
-    int A, B, C, X;
-    cin >> A >> B >> C >> X;
-    int res = 0;
-    for (int a = 0; a <= A; ++a)
+    int ans = 0;
+
+    for (int i = 0; i < s1.length(); i++)
     {
-        for (int b = 0; b <= B; ++b)
+
+        // s3 stores all substrings of s1
+        string s3;
+        for (int j = i; j < s1.length(); j++)
         {
-            for (int c = 0; c <= C; ++c)
-            {
-                int total = 500 * a + 100 * b + 50 * c; // 合計金額
-                if (total == X)
-                    ++res; // 合計金額が X に一致したら答えをインクリメント
-            }
+            s3 += s1[j];
+
+            // check the presence of s3 in s2
+            if (s2.find(s3) != string::npos)
+                ans++;
         }
     }
-    cout << res << endl;
+    return ans;
+}
+int main()
+{
+    int N, Q;
+    cin >> N >> Q;
+    string s;
+    cin >> s;
+    int l[Q], r[Q];
+    for (int i = 0; i < Q; ++i)
+    {
+        cin >> l[i] >> r[i];
+    }
+
+    string ac = "AC";
+
+    for (int j = 0; j < Q; ++j)
+    {
+        int record = 0;
+        for (int k = l[j]; k <= r[j]; ++k)
+        {
+            for (int m = l[j] + 1; m < N; ++m)
+            {
+                string search = s.substr(k-1, m);
+                int tmp = countSubstrs(ac, search);
+                if (record < tmp)
+                    record = tmp;
+            }
+        }
+        cout << record << endl;
+    }
 }
