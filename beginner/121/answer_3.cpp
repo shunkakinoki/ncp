@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#pragma warning(disable : 4101)
 using namespace std;
 
 int main()
@@ -21,7 +20,6 @@ int main()
         AB[n] = make_pair(A[n], B[n]);
     }
     sort(AB.begin(), AB.end());
-
     long long ans = 0;
     for (int n = 0; n < N; n++)
     {
