@@ -1,41 +1,31 @@
 #include <iostream>
-#include <string>
-#include <map>
-#include <algorithm>
 #include <vector>
+#include <string>
 using namespace std;
 
 int main()
 {
     int N, Q;
-    string S;
-
     cin >> N >> Q;
-    cin >> S;
+    string str;
+    cin >> str;
 
-    vector<int> l(Q), r(Q);
-    for (int i = 0; i < Q; i++)
+    // 累積和
+    vector<int> s(N + 1, 0);
+    for (int i = 0; i < N; ++i)
     {
-        cin >> l[i] >> r[i];
-    };
-
-    vector<int> sum(N + 1, 0);
-
-    for (int i = 1; i < N; i++)
-    {
-        if (S[i - 1] == 'A' && S[i] == 'C')
-        {
-            sum[i + 1] = sum[i] + 1;
-        }
+        if (i + 1 < N && str[i] == 'A' && str[i + 1] == 'C')
+            s[i + 1] = s[i] + 1;
         else
-        {
-            sum[i + 1] = sum[i];
-        }
+            s[i + 1] = s[i];
     }
 
-    for (int i = 0; i < Q; i++)
+    // クエリ
+    for (int q = 0; q < Q; ++q)
     {
-        int ans = sum[r[i]] - sum[l[i]];
-        cout << ans << endl;
+        int l, r;
+        cin >> l >> r;
+        --l, --r; // 0-indexed にする
+        cout << s[r] - s[l] << endl;
     }
 }
