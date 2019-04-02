@@ -23,6 +23,8 @@ int main()
         for (int j = X; j > 0; --j)
         {
             dp[j] = (i * dp[j] + dp[j % S[i]]) % MOD;
+            cout << "j = " << j << endl;
+            cout << "DP = " << dp[j] << endl;
         }
     }
     cout << dp[X] << endl;
