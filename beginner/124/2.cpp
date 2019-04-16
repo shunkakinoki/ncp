@@ -1,35 +1,35 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int a[5];
-    int K;
+    int N;
+    cin >> N;
 
-    for (int i = 0; i < 5; i++)
+    vector<int> H(N);
+    vector<int> I(N);
+
+    int counter = 0;
+
+    for (int i = 0; i < N; ++i)
     {
-        cin >> a[i];
+        cin >> H[i];
     }
 
-    int remainder = 10;
-
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < N; ++i)
     {
-        int tmp = 0;
-        tmp = a[i] % 10;
-        if(tmp < remainder)
-            if(tmp != 0)
-                remainder = tmp;
+        for (int j = 0; j <= i; ++j)
+        {
+            if (H[i] < H[j])
+                I[i] = 1;
+        }
+        counter = counter + I[i];
     }
 
-    int ans = 0;
-    for (int i = 0; i < 5; i++)
-    {
-        if(a[i] % 10 != 0)
-            a[i] = (a[i] / 10 + 1) * 10;
-        ans = ans + a[i];
-    }
-    cout << ans - 10 + remainder << endl;
+    cout << N - counter << endl;
+    return 0;
 }
