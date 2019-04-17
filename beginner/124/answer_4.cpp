@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 using namespace std;
-#define max(a, b) (a > b ? a : b)
 
 int main()
 {
@@ -11,7 +10,6 @@ int main()
     int i = 0;
     int j = 0;
     int answer = 0;
-    vector<int> a;
     cin >> N >> K >> S;
     while (i < N)
     {
