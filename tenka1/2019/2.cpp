@@ -1,35 +1,59 @@
 #include <iostream>
-#include <string>
-#include <cmath>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    string S, SA, SB, SC;
+    int long N;
+    int cnt;
+    int cnta = 0;
+    cin >> N >> S;
 
-    vector<int> H(N);
-    vector<int> I(N);
+    SA = S;
+    SB = S;
+    SC = S;
 
-    int counter = 0;
-
-    for (int i = 0; i < N; ++i)
+    for (int i = 0; i < N; i++)
     {
-        cin >> H[i];
-    }
-
-    for (int i = 0; i < N; ++i)
-    {
-        for (int j = 0; j <= i; ++j)
+        if (S[i] == '#' && S[i + 1] == '.')
         {
-            if (H[i] < H[j])
-                I[i] = 1;
+            cnta++;
+            S[i + 1] = '#';
         }
-        counter = counter + I[i];
     }
+    cnt = cnta;
+    cnta = 0;
+    for (int i = 0; i < N; i++)
+    {
+        if (SA[i] == '#' && SA[i + 1] == '.')
+        {
+            cnta++;
+            SA[i] = '.';
+        }
+    }
+    cnt = min(cnt, cnta);
+    cnta = 0;
+    for (int i = N - 1; i > 0; i--)
+    {
+        if (SB[i - 1] == '#' && SB[i] == '.')
+        {
+            cnta++;
+            SB[i - 1] = '.';
+        }
+    }
+    cnt = min(cnt, cnta);
+    cnta = 0;
+    for (int i = N - 1; i > 0; i--)
+    {
+        if (SC[i - 1] == '#' && SC[i] == '.')
+        {
+            cnta++;
+            SC[i] = '#';
+        }
+    }
+    cnt = min(cnt, cnta);
 
-    cout << N - counter << endl;
+    cout << cnt << endl;
+
     return 0;
 }
