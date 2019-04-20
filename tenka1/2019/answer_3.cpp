@@ -7,27 +7,20 @@ using namespace std;
 
 int main()
 {
+    int N, a = 0, b = 0;
     string S;
-    cin >> S;
+    cin >> N >> S;
 
-    int c = 0;
-    int N = S.size();
     for (int i = 0; i < N; i++)
     {
-        if (i % 2 == 0)
+        if (S.at(i) == '#')
+            a++;
+        else if (S.at(i) == '.' && a > 0)
         {
-            if (S.at(i) == '0')
-                c++;
-        }
-        else
-        {
-            if (S.at(i) == '1')
-                c++;
+            b++;
+            a--;
         }
     }
-
-    int ans = min(c, N - c);
-    cout << ans << endl;
-
+    cout << b << endl;
     return 0;
 }
