@@ -4,34 +4,26 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+
 int main()
 {
-    // input
-    int N;
-    cin >> N;
-    vector<int> H(N);
-    for (int i = 0; i < N; ++i)
+    int N, K;
+    string S;
+    cin >> N >> S >> K;
+
+    char s = S[K-1];
+
+    for (int n = 0; n < N; n++)
     {
-        cin >> H[i];
-    }
-    // compute
-    int ans = 0;
-    for (int i = 0; i < N; ++i)
-    {
-        bool is_candidate = true;
-        for (int j = 0; j < i; ++j)
+        if (S[n] == s)
+            cout << S[n];
+        else
         {
-            if (H[j] > H[i])
-            {
-                is_candidate = false;
-                break;
-            }
-        }
-        if (is_candidate)
-        {
-            ++ans;
+            cout << '*';
         }
     }
-    // output
-    cout << ans << endl;
+
+    cout << endl;
+
+    return 0;
 }

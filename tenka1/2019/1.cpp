@@ -1,35 +1,21 @@
 #include <iostream>
+#include <string>
+#include <cmath>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int N;
-    string S;
-    int cnta = 0;
-    int cntb = 0;
+    int A, B, C;
+    cin >> A >> B >> C;
 
-    cin >> N >> S;
-    for (int i = N - 1; i > 0; i--)
-    {
-        if (S[i] == '.' && S[i - 1] == '#')
-        {
-            cnta++;
-            S[i - 1] = '.';
-        }
-    }
+    if (A < C && C < B)
+        cout << "Yes" << endl;
+    else if (B < C && C < A)
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
 
-    for (int i = 1; i < N; i++)
-    {
-        if (S[i] == '.' && S[i - 1] == '#')
-        {
-            cntb++;
-            S[i] = '#';
-        }
-    }
-
-    cout << cnta << cntb;
-    int cnt = min(cnta, cntb);
-
-    cout << cnt << endl;
     return 0;
 }

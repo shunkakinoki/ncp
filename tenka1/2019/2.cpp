@@ -1,59 +1,30 @@
 #include <iostream>
+#include <string>
+#include <cmath>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    string S, SA, SB, SC;
-    int long N;
-    int cnt;
-    int cnta = 0;
-    cin >> N >> S;
+    int N, K;
+    string S;
+    cin >> N >> S >> K;
 
-    SA = S;
-    SB = S;
-    SC = S;
+    vector<int> s(N);
 
-    for (int i = 0; i < N; i++)
-    {
-        if (S[i] == '#' && S[i + 1] == '.')
-        {
-            cnta++;
-            S[i + 1] = '#';
-        }
-    }
-    cnt = cnta;
-    cnta = 0;
-    for (int i = 0; i < N; i++)
-    {
-        if (SA[i] == '#' && SA[i + 1] == '.')
-        {
-            cnta++;
-            SA[i] = '.';
-        }
-    }
-    cnt = min(cnt, cnta);
-    cnta = 0;
-    for (int i = N - 1; i > 0; i--)
-    {
-        if (SB[i - 1] == '#' && SB[i] == '.')
-        {
-            cnta++;
-            SB[i - 1] = '.';
-        }
-    }
-    cnt = min(cnt, cnta);
-    cnta = 0;
-    for (int i = N - 1; i > 0; i--)
-    {
-        if (SC[i - 1] == '#' && SC[i] == '.')
-        {
-            cnta++;
-            SC[i] = '#';
-        }
-    }
-    cnt = min(cnt, cnta);
+    int safe = S[K - 1];
 
-    cout << cnt << endl;
+    for (int n = 0; n < N; n++)
+    {
+        s[n] = S[n];
+        if (s[n] == safe)
+            cout << S[n];
+        else
+        {
+            cout << '*';
+        }
+    }
 
     return 0;
 }
