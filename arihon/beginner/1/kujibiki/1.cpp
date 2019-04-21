@@ -37,3 +37,4 @@ int main()
         res = max(res, b[i] + b[ind]);
     }
     cout << res << endl;
+}
