@@ -29,7 +29,6 @@ int main()
     for (int i = 0; i < b.size(); i++)
     {
         int ind = upper_bound(b.begin(), b.end(), M - b[i]) - b.begin();
-        cout << ind << endl;
 
         ind--;
         if (ind < 0)
