@@ -5,29 +5,34 @@
 #include <algorithm>
 using namespace std;
 
-int main()
+int n;
+int a[100005];
+int l[100005], r[100005];
+
+int gcd(int a, int b)
 {
-    string S;
-    cin >> S;
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
 
-    int c = 0;
-    int N = S.size();
-    for (int i = 0; i < N; i++)
+int main(void)
+{
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
+
+    for (int i = 1; i <= n; i++)
+        l[i] = gcd(l[i - 1], a[i]);
+
+    for (int i = n; i >= 1; i--)
+        r[i] = gcd(r[i + 1], a[i]);
+
+    int ans = 0;
+    for (int i = 1; i <= n; i++)
     {
-        if (i % 2 == 0)
-        {
-            if (S.at(i) == '0')
-                c++;
-        }
-        else
-        {
-            if (S.at(i) == '1')
-                c++;
-        }
+        ans = max(ans, gcd(l[i - 1], r[i + 1]));
     }
-
-    int ans = min(c, N - c);
     cout << ans << endl;
-
     return 0;
 }

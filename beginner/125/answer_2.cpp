@@ -4,34 +4,24 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+
 int main()
 {
-    // input
-    int N;
-    cin >> N;
-    vector<int> H(N);
-    for (int i = 0; i < N; ++i)
+    long long n, ans = 0;
+    cin >> n;
+    long long a[n], b[n];
+    for (int i = 0; i < n; i++)
     {
-        cin >> H[i];
+        cin >> a[i];
     }
-    // compute
-    int ans = 0;
-    for (int i = 0; i < N; ++i)
+    for (int i = 0; i < n; i++)
     {
-        bool is_candidate = true;
-        for (int j = 0; j < i; ++j)
+        cin >> b[i];
+        if (a[i] > b[i])
         {
-            if (H[j] > H[i])
-            {
-                is_candidate = false;
-                break;
-            }
-        }
-        if (is_candidate)
-        {
-            ++ans;
+            ans += a[i] - b[i];
         }
     }
-    // output
     cout << ans << endl;
+    return 0;
 }
