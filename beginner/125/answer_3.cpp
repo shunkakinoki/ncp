@@ -5,34 +5,35 @@
 #include <algorithm>
 using namespace std;
 
-int n;
-int a[100005];
-int l[100005], r[100005];
+vector<int> A;
 
-int gcd(int a, int b)
+int main()
 {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-
-int main(void)
-{
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-        cin >> a[i];
-
-    for (int i = 1; i <= n; i++)
-        l[i] = gcd(l[i - 1], a[i]);
-
-    for (int i = n; i >= 1; i--)
-        r[i] = gcd(r[i + 1], a[i]);
-
-    int ans = 0;
-    for (int i = 1; i <= n; i++)
+    int N;
+    cin >> N;
+    for (int i = 0; i < N; i++)
     {
-        ans = max(ans, gcd(l[i - 1], r[i + 1]));
+        int x;
+        cin >> x;
+        A.push_back(x);
     }
-    cout << ans << endl;
+    sort(A.begin(), A.end());
+
+    for (int i = A[1]; i > 0; i--)
+    {
+        int flag = 0;
+        for (int k = 0; k < N; k++)
+        {
+            if (A[k] % i)
+                flag++;
+            if (flag == 2)
+                break;
+        }
+        if (flag < 2)
+        {
+            cout << i << endl;
+            break;
+        }
+    }
     return 0;
 }
