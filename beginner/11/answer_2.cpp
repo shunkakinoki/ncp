@@ -13,17 +13,17 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    cinf(n, a);
-    sort(a.begin(), a.end(), greater<int>());
-    for (int i = 0; i < n; i++)
+    string S;
+    cin >> S;
+
+    for (int i = 0; i < S.length(); i++)
     {
-        if (a[0] != a[i])
-        {
-            cout << a[i] << endl;
-            return 0;
-        }
+        if (i == 0)
+            S[i] = toupper(S[i]);
+        else
+            S[i] = tolower(S[i]);
     }
+
+    cout << S << endl;
+    return 0;
 }

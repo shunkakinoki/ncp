@@ -13,8 +13,14 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    cinf(n, a);
+    int N;
+    cin >> N;
+
+    if (N == 12)
+        N = 1;
+    else
+        N = N + 1;
+
+    cout << N << endl;
+    return 0;
 }
