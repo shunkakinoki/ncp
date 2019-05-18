@@ -13,21 +13,7 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    int res = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-        int a;
-        cin >> a;
-
-        while (a % 2 == 0 || a % 3 == 2)
-        {
-            res++;
-            a--;
-        }
-    }
-
-    cout << res << endl;
+    int N;
+    cin >> N;
+    printf("%02d:%02d:%02d\n", N / 3600, N % 3600 / 60, N % 3600 % 60);
 }

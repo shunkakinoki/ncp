@@ -13,11 +13,9 @@ using namespace std;
 
 int main()
 {
-    string s;
-    cin >> s;
+    int A, B;
+    cin >> A >> B;
 
-    string ans;
-    ans = s + "pp";
-
-    cout << ans << endl;
+    cout << B << " " << A << endl;
+    return 0;
 }
