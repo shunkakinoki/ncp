@@ -3,11 +3,14 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <map>
+
 using namespace std;
 
 int main()
 {
-    int s, t;
-    cin >> s >> t;
-    cout << t - s + 1 << endl;
+    int N;
+    cin >> N;
+    cout << N / 2 + N % 2 << endl;
+    return 0;
 }

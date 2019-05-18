@@ -5,28 +5,25 @@
 #include <algorithm>
 #include <map>
 
+#define cinf(n, x)                \
+    for (int i = 0; i < (n); i++) \
+        cin >> x[i];
+
 using namespace std;
 
-int n;
-string s[55];
-map<string, int> mp;
-
-int main(void)
+int main()
 {
+    int n;
     cin >> n;
-    for (int i = 1; i <= n; i++)
-        cin >> s[i];
-    for (int i = 1; i <= n; i++)
-        mp[s[i]]++;
-
-    int mx = 0;
-    string mx_s;
-    for (auto x : mp)
+    vector<int> a(n);
+    cinf(n, a);
+    sort(a.begin(), a.end(), greater<int>());
+    for (int i = 0; i < n; i++)
     {
-        if (x.second > mx)
-            mx = x.second, mx_s = x.first;
+        if (a[0] != a[i])
+        {
+            cout << a[i] << endl;
+            return 0;
+        }
     }
-    cout << mx_s << endl;
-
-    return 0;
 }
