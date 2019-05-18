@@ -13,8 +13,18 @@ using namespace std;
 
 int main()
 {
-    int a, b;
-    cin >> a >> b;
-    int diff = abs(a - b);
-    cout << min(diff, 10 - diff) << endl;
+    int n, X;
+    cin >> n >> X;
+    int a[n];
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        if ((X & (1 << i)) != 0)
+        {
+            sum += a[i];
+        }
+    }
+    cout << sum << endl;
+    return 0;
 }
