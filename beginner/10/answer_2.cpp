@@ -15,15 +15,19 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
-    cinf(n, a);
-    sort(a.begin(), a.end(), greater<int>());
+    int res = 0;
+
     for (int i = 0; i < n; i++)
     {
-        if (a[0] != a[i])
+        int a;
+        cin >> a;
+
+        while (a % 2 == 0 || a % 3 == 2)
         {
-            cout << a[i] << endl;
-            return 0;
+            res++;
+            a--;
         }
     }
+
+    cout << res << endl;
 }
