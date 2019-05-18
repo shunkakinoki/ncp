@@ -13,17 +13,8 @@ using namespace std;
 
 int main()
 {
-    string S;
-    cin >> S;
-
-    for (int i = 0; i < S.length(); i++)
-    {
-        if (i == 0)
-            S[i] = toupper(S[i]);
-        else
-            S[i] = tolower(S[i]);
-    }
-
-    cout << S << endl;
-    return 0;
+    int a, b;
+    cin >> a >> b;
+    int diff = abs(a - b);
+    cout << min(diff, 10 - diff) << endl;
 }

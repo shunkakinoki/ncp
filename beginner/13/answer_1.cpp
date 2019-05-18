@@ -13,14 +13,8 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
-
-    if (N == 12)
-        N = 1;
-    else
-        N = N + 1;
-
-    cout << N << endl;
+    char X;
+    cin >> X;
+    cout << X % 64 << endl;
     return 0;
 }
