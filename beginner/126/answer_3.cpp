@@ -13,17 +13,28 @@ using namespace std;
 
 int main()
 {
-    int n, X;
-    cin >> n >> X;
-    int a[n];
-    int sum = 0;
-    for (int i = 0; i < n; i++)
+    float N, K;
+    cin >> N >> K;
+    float A[(int)N];
+    float B[(int)N];
+    for (int i = 0; i < N; i++)
+        A[i] = i + 1;
+    float tmp, times;
+    for (int i = 0; i < N; i++)
     {
-        cin >> a[i];
-        if ((X & (1 << i)) != 0)
+        tmp = i + 1;
+        times = 0;
+        while (tmp < K)
         {
-            sum += a[i];
+            tmp *= 2;
+            times += 1;
         }
+        B[i] = times;
+    }
+    float sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        sum += ((float)1 / (N)) * (pow((float)0.5, B[i]));
     }
     cout << sum << endl;
     return 0;

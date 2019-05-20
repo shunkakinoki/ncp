@@ -13,11 +13,22 @@ using namespace std;
 
 int main()
 {
-    int a, b;
-    cin >> a >> b;
-    if (a == b)
-        cout << 0 << endl;
-    else
-        cout << b - a % b << endl;
-    return 0;
+    string S;
+    int N, K;
+    cin >> N >> K;
+    cin >> S;
+    for (int i = 0; i < N; i++)
+    {
+        char w = S.at(i);
+        if (i + 1 == K)
+        {
+            char s = tolower(w);
+            cout << s;
+        }
+        else
+        {
+            cout << w;
+        }
+    }
+    cout << endl;
 }
