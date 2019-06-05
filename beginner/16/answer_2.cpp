@@ -13,18 +13,33 @@ using namespace std;
 
 int main()
 {
-    int n, num = 0;
-    cin >> n;
-    vector<int> a(n);
-    int c = 0;
-    for (int i = 0; i < n; i++)
+    int A, B, C;
+    cin >> A >> B >> C;
+    if (B == 0)
     {
-        cin >> a.at(i);
-        if (0 < a.at(i))
+        if (C == A)
         {
-            num += a.at(i);
-            c++;
+            cout << '?' << endl;
+        }
+        else
+        {
+            cout << '!' << endl;
         }
     }
-    cout << (num + c - 1) / c << endl;
+    else
+    {
+        if (C == A + B)
+        {
+            cout << '+' << endl;
+        }
+        else if (C == A - B)
+        {
+            cout << '-' << endl;
+        }
+        else
+        {
+            cout << '!' << endl;
+        }
+    }
+    return 0;
 }
