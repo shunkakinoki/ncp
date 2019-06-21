@@ -50,6 +50,5 @@ int main()
     }
 
     cout << ans << endl;
-    cin >> ans;
     return 0;
 }
