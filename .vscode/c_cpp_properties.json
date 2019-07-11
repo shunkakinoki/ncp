@@ -3,6 +3,7 @@
         "name": "Mac",
         "includePath": [
             "/usr/local/Cellar/gcc/9.1.0/include",
+            "/usr/local/Cellar/gcc/9.1.0/bin",
             "${workspaceFolder}/**"
         ],
         "defines": [],
