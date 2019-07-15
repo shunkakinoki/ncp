@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool binary_search(int x)
+bool binary_search(int x, int n, int k[])
 {
     int l = 0, r = n;
 
@@ -42,7 +42,7 @@ int main()
         {
             for (int c = 9; c < n; c++)
             {
-                if (binary_search(m - k[a] - k[b] - k[c]))
+                if (binary_search(m - k[a] - k[b] - k[c], n, &k[n]))
                 {
                     f = true;
                 }
